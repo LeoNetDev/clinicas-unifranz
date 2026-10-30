@@ -1,0 +1,492 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#EC5E17">
+  <title>Rotes Clínicos | UNIFRANZ</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <img
+       src="logo-dark.9df301.svg"
+       alt="UNIFRANZ"
+       class="brand-logo"
+>
+      <div class="brand-title">
+        <strong>ROTES CLÍNICOS</strong>
+        <small>UNIFRANZ · LA PAZ</small>
+      </div>
+      <button class="mobile-close" id="closeMenu" aria-label="Cerrar menú">×</button>
+    </div>
+
+    <div class="nav-label">GESTIÓN HOSPITALARIA</div>
+
+    <nav class="nav">
+      <button class="nav-link active" data-page="dashboard"><span>▦</span> Panel general</button>
+      <button class="nav-link" data-page="internos"><span>♙</span> Internos <em>64</em></button>
+      <button class="nav-link" data-page="servicios"><span>✚</span> Servicios clínicos</button>
+      <button class="nav-link" data-page="rotaciones"><span>▦</span> Rotaciones y cargos</button>
+      <button class="nav-link" data-page="pronostico"><span>◷</span> Pronóstico hospitalario</button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="demo-note">
+        <span class="dot"></span>
+        <div>
+          <strong>Modo demostración</strong>
+          <small>Datos de ejemplo</small>
+        </div>
+      </div>
+
+      <div class="user-mini">
+        <div class="avatar">AD</div>
+        <div>
+          <strong>Administrador</strong>
+          <small>Coordinación académica</small>
+        </div>
+        <span class="more">•••</span>
+      </div>
+    </div>
+  </aside>
+
+  <div class="scrim" id="scrim"></div>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-button" id="openMenu" aria-label="Abrir menú">☰</button>
+
+      <div class="breadcrumbs">
+        Clínica UNIFRANZ <span>/</span>
+        <strong id="crumb">Panel general</strong>
+      </div>
+
+      <div class="top-actions">
+        <span class="live-dot"></span>
+        <span class="live-label">Vista de demostración</span>
+        <button class="icon-button" title="Notificaciones">♧<i></i></button>
+        <div class="avatar small">AD</div>
+      </div>
+    </header>
+
+    <div class="content">
+      <section class="page active" id="page-dashboard">
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">CENTRO DE OPERACIONES</div>
+            <h1>Resumen hospitalario</h1>
+            <p>Monitorea los servicios y organiza las rotaciones clínicas en un solo lugar.</p>
+          </div>
+
+          <div class="date-card">
+            <div class="calendar-icon">▦</div>
+            <div>
+              <small>FECHA DE HOY</small>
+              <strong id="today">Cargando fecha…</strong>
+              <span id="clock">--:--</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-banner">
+          <span class="info-icon">i</span>
+          <div>
+            <strong>Datos demostrativos</strong>
+            <p>Los números, estados y probabilidades de esta vista son ficticios. No representan la situación real de la Clínica UNIFRANZ.</p>
+          </div>
+        </div>
+
+        <div class="metrics">
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Internos registrados</span>
+              <span class="metric-icon blue">♙</span>
+            </div>
+            <div class="metric-value">64 <small>internos</small></div>
+            <div class="metric-foot">
+              <span class="neutral-pill">Ejemplo</span>
+              <span>En todos los servicios</span>
+            </div>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Servicios configurados</span>
+              <span class="metric-icon violet">✚</span>
+            </div>
+            <div class="metric-value">8 <small>servicios</small></div>
+            <div class="metric-foot">
+              <span class="neutral-pill">Ejemplo</span>
+              <span>Catálogo inicial</span>
+            </div>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Cargos ocupados</span>
+              <span class="metric-icon green">▤</span>
+            </div>
+            <div class="metric-value">42 <small>de 52</small></div>
+            <div class="metric-foot">
+              <div class="mini-progress"><span style="width:81%"></span></div>
+              <span>81% de ocupación ficticia</span>
+            </div>
+          </article>
+
+          <article class="metric-card">
+            <div class="metric-top">
+              <span>Alertas activas</span>
+              <span class="metric-icon amber">⚑</span>
+            </div>
+            <div class="metric-value">2 <small>alertas</small></div>
+            <div class="metric-foot">
+              <span class="warning-text">Revisar asignaciones</span>
+              <span>Ejemplo</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel hospital-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Estado hospitalario</h2>
+                <p>Indicador general ilustrativo</p>
+              </div>
+              <button class="text-button" data-goto="pronostico">Ver pronóstico ↗</button>
+            </div>
+
+            <div class="status-content">
+              <div class="status-ring yellow-ring">
+                <div>
+                  <span class="status-dot yellow"></span>
+                  <strong>AMARILLO</strong>
+                  <small>Actividad moderada</small>
+                </div>
+              </div>
+
+              <div class="status-description">
+                <strong>Vigilancia preventiva</strong>
+                <p>En esta demostración, la ocupación requiere seguimiento, pero no indica un colapso confirmado.</p>
+                <div class="status-meta"><span>●</span> Actualización: <b>datos ficticios</b></div>
+              </div>
+            </div>
+
+            <div class="forecast-strip">
+              <div>
+                <small>Prob. de pasar a rojo mañana</small>
+                <strong class="red-text">25%</strong>
+                <div class="bar"><span class="red-bar" style="width:25%"></span></div>
+              </div>
+              <div>
+                <small>Prob. de seguir amarillo mañana</small>
+                <strong class="amber-text">60%</strong>
+                <div class="bar"><span class="amber-bar" style="width:60%"></span></div>
+              </div>
+            </div>
+
+            <p class="microcopy">Ejemplo visual únicamente. No es una predicción calculada ni una alerta clínica.</p>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Ocupación por servicio</h2>
+                <p>Distribución ficticia de cargos</p>
+              </div>
+              <button class="dots" aria-label="Más opciones">•••</button>
+            </div>
+
+            <div class="service-bars" id="serviceBars"></div>
+            <button class="outline-button full" data-goto="servicios">Explorar servicios <span>→</span></button>
+          </article>
+        </div>
+
+        <div class="lower-grid">
+          <article class="panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Rotaciones de hoy</h2>
+                <p>Asignaciones de ejemplo</p>
+              </div>
+              <button class="text-button" data-goto="rotaciones">Ver calendario ↗</button>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>INTERNO</th>
+                    <th>SERVICIO</th>
+                    <th>TURNO</th>
+                    <th>ESTADO</th>
+                  </tr>
+                </thead>
+                <tbody id="rotationPreview"></tbody>
+              </table>
+            </div>
+          </article>
+
+          <article class="panel alert-panel">
+            <div class="panel-heading">
+              <div>
+                <h2>Alertas de coordinación</h2>
+                <p>Elementos por revisar</p>
+              </div>
+              <span class="alert-count">2</span>
+            </div>
+
+            <div class="alert-item">
+              <span class="alert-symbol amber-bg">!</span>
+              <div>
+                <strong>Cargo sin asignar</strong>
+                <p>Emergencias · Turno tarde</p>
+                <small>Ejemplo de alerta</small>
+              </div>
+            </div>
+
+            <div class="alert-item">
+              <span class="alert-symbol blue-bg">↻</span>
+              <div>
+                <strong>Rotación próxima a finalizar</strong>
+                <p>Medicina interna · Grupo B</p>
+                <small>Ejemplo de alerta</small>
+              </div>
+            </div>
+
+            <p class="microcopy">Las alertas reales se generarán cuando existan datos registrados.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="page" id="page-internos">
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">PERSONAL EN FORMACIÓN</div>
+            <h1>Internos de Medicina</h1>
+            <p>Consulta y organiza a los internos asignados a la clínica.</p>
+          </div>
+          <button class="primary-button" id="addIntern">＋ Registrar interno</button>
+        </div>
+
+        <div class="demo-banner">
+          <span class="info-icon">i</span>
+          <div>
+            <strong>Listado de demostración</strong>
+            <p>Los registros son ficticios. El formulario permite probar la interfaz, pero aún no guarda datos en PostgreSQL.</p>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <input id="internSearch" class="search-input" placeholder="⌕  Buscar por nombre, código o servicio…">
+          <select id="serviceFilter"><option value="">Todos los servicios</option></select>
+        </div>
+
+        <div class="panel table-panel">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>INTERNO</th>
+                  <th>CÓDIGO</th>
+                  <th>SERVICIO</th>
+                  <th>TURNO</th>
+                  <th>ROTACIÓN HASTA</th>
+                  <th>ESTADO</th>
+                </tr>
+              </thead>
+              <tbody id="internTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-servicios">
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">UNIDADES ASISTENCIALES</div>
+            <h1>Servicios clínicos</h1>
+            <p>Catálogo inicial para configurar capacidad, cargos y asignaciones.</p>
+          </div>
+          <button class="primary-button" id="addService">＋ Nuevo servicio</button>
+        </div>
+
+        <div class="demo-banner">
+          <span class="info-icon">i</span>
+          <div>
+            <strong>Catálogo provisional</strong>
+            <p>Confirma con la coordinación clínica qué servicios y cargos existen realmente en la Clínica UNIFRANZ.</p>
+          </div>
+        </div>
+
+        <div class="service-grid" id="serviceGrid"></div>
+      </section>
+
+      <section class="page" id="page-rotaciones">
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">PLANIFICACIÓN ACADÉMICA</div>
+            <h1>Rotaciones y cargos</h1>
+            <p>Visualiza la distribución por servicio y turno.</p>
+          </div>
+          <button class="primary-button" id="newRotation">＋ Nueva asignación</button>
+        </div>
+
+        <div class="demo-banner">
+          <span class="info-icon">i</span>
+          <div>
+            <strong>Planificación de ejemplo</strong>
+            <p>Esta versión no valida todavía los límites de cupos, descansos ni solapamientos automáticamente.</p>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <select id="rotationServiceFilter"><option value="">Todos los servicios</option></select>
+          <select id="shiftFilter">
+            <option value="">Todos los turnos</option>
+            <option>Mañana</option>
+            <option>Tarde</option>
+            <option>Noche</option>
+          </select>
+        </div>
+
+        <div class="panel table-panel">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>INTERNO</th>
+                  <th>SERVICIO</th>
+                  <th>CARGO</th>
+                  <th>TURNO</th>
+                  <th>FECHA</th>
+                  <th>ESTADO</th>
+                </tr>
+              </thead>
+              <tbody id="rotationTable"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-pronostico">
+        <div class="page-heading">
+          <div>
+            <div class="eyebrow">MONITOREO Y PREVISIÓN</div>
+            <h1>Pronóstico hospitalario</h1>
+            <p>Seguimiento del semáforo y evolución estimada de la demanda.</p>
+          </div>
+
+          <div class="date-card">
+            <div class="calendar-icon">◷</div>
+            <div>
+              <small>HORIZONTE</small>
+              <strong>Próximos 7 días</strong>
+              <span>Vista de ejemplo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-banner">
+          <span class="info-icon">i</span>
+          <div>
+            <strong>Pronóstico no conectado a datos reales</strong>
+            <p>Los porcentajes siguientes son ficticios. Para calcular probabilidades reales se necesita historial de ocupación, demanda, capacidad y validación del personal responsable.</p>
+          </div>
+        </div>
+
+        <div class="forecast-cards">
+          <article class="panel forecast-card">
+            <span class="forecast-label">ESTADO ACTUAL · EJEMPLO</span>
+            <div class="big-status"><span class="status-dot yellow"></span> Amarillo</div>
+            <p>Actividad moderada</p>
+          </article>
+
+          <article class="panel forecast-card">
+            <span class="forecast-label">MAÑANA · EJEMPLO</span>
+            <div class="prob-row">
+              <span>Probabilidad de pasar a rojo</span>
+              <strong class="red-text">25%</strong>
+            </div>
+            <div class="bar"><span class="red-bar" style="width:25%"></span></div>
+
+            <div class="prob-row">
+              <span>Probabilidad de seguir amarillo</span>
+              <strong class="amber-text">60%</strong>
+            </div>
+            <div class="bar"><span class="amber-bar" style="width:60%"></span></div>
+
+            <div class="prob-row">
+              <span>Probabilidad de mejorar a verde</span>
+              <strong class="green-text">15%</strong>
+            </div>
+            <div class="bar"><span class="green-bar" style="width:15%"></span></div>
+          </article>
+        </div>
+
+        <article class="panel week-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Tendencia semanal ilustrativa</h2>
+              <p>El estado futuro debe calcularse con datos reales, no con valores fijos.</p>
+            </div>
+          </div>
+          <div class="week-grid" id="weekForecast"></div>
+        </article>
+
+        <article class="panel methodology">
+          <h2>¿Qué necesitará el modelo?</h2>
+          <div class="method-grid">
+            <div>
+              <span>01</span>
+              <strong>Ocupación actual</strong>
+              <p>Camas y puestos disponibles frente a los ocupados.</p>
+            </div>
+            <div>
+              <span>02</span>
+              <strong>Demanda histórica</strong>
+              <p>Ingresos, egresos y atención por servicio y fecha.</p>
+            </div>
+            <div>
+              <span>03</span>
+              <strong>Capacidad operativa</strong>
+              <p>Personal, camas habilitadas y recursos disponibles.</p>
+            </div>
+            <div>
+              <span>04</span>
+              <strong>Validación clínica</strong>
+              <p>Umbrales acordados con responsables de la clínica.</p>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <footer>
+        Rotes Clínicos · UNIFRANZ
+        <span>Prototipo de interfaz · Sin datos hospitalarios reales</span>
+      </footer>
+    </div>
+  </main>
+
+  <dialog id="recordDialog">
+    <form method="dialog" id="recordForm">
+      <div class="dialog-head">
+        <div>
+          <small>GESTIÓN</small>
+          <h2 id="dialogTitle">Nuevo registro</h2>
+        </div>
+        <button class="icon-button" value="cancel" aria-label="Cerrar">×</button>
+      </div>
+      <div id="dialogFields"></div>
+      <div class="dialog-actions">
+        <button class="outline-button" value="cancel">Cancelar</button>
+        <button class="primary-button" id="saveRecord" value="default">Guardar en demo</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
