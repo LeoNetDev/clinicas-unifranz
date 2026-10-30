@@ -1,0 +1,14 @@
+services:
+  postgres-db:
+    image: postgres:16-alpine
+    container_name: unifranz_postgres
+    environment:
+      POSTGRES_DB: rotes_clinicos_db
+      POSTGRES_USER: unifranz_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-dev_only_change_this_password}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+volumes:
+  pgdata:
